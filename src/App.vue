@@ -5,6 +5,7 @@
               <component :is="Component" :key="$route.path"></component>
             </transition>
           </router-view>
+
   </div>
 </template>
 
