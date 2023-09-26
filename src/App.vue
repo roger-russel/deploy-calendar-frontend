@@ -1,30 +1,27 @@
+<script setup>
+import TopBar from '@/components/TopBar.vue';
+import LeftMenu from '@/components/LeftMenu.vue';
+</script>
 <template>
-      <div class="container">
-          <router-view v-slot="{ Component }" class="main-view">
-            <transition name="fade" mode="out-in">
-              <component :is="Component" :key="$route.path"></component>
-            </transition>
-          </router-view>
-
-  </div>
+  <v-layout class="rounded rounded-md">
+    <TopBar></TopBar>
+    <LeftMenu></LeftMenu>
+    <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+      <router-view v-slot="{ Component }" class="main-view">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" :key="$route.path"></component>
+          </transition>
+        </router-view>
+    </v-main>
+  </v-layout>
 </template>
+<script>
+export default {
+  name: 'app',
 
-<style lang="css">
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
+  data: () => ({
+  }),
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-.container{
-  display: flex;
-}
-.left-sidebar{
-  width: 20%;
-}
-.main-view{
-  width: 100%;
-}
-</style>
+</script>
+
+
